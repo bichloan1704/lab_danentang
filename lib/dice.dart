@@ -34,6 +34,10 @@ class _DicePageState extends State<DicePage> {
     });
   }
 
+  final BoxDecoration imgSet = BoxDecoration(
+    borderRadius: BorderRadius.circular(10),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Container(
