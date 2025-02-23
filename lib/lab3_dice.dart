@@ -61,8 +61,5 @@ class _DicePageState extends State<DicePage> {
         ],
       ),
     );
-
-    // TODO: implement build
-    throw UnimplementedError();
   }
 }

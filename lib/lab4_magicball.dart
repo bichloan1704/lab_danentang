@@ -31,7 +31,6 @@ class _MagicPageState extends State<MagicPage> {
       magicBall = random.nextInt(5) + 1;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,8 +45,5 @@ class _MagicPageState extends State<MagicPage> {
         ],
       ),
     );
-
-    // TODO: implement build
-    throw UnimplementedError();
   }
 }

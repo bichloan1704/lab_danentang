@@ -16,11 +16,8 @@ class CustomerButton extends StatelessWidget {
           minimumSize: Size(500, 50),
         ),
         child: Text(''));
-    // TODO: implement build
-    throw UnimplementedError();
   }
 }
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
