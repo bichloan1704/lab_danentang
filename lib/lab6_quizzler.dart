@@ -6,7 +6,8 @@ class ChoiceButton extends StatelessWidget {
   final String text;
 
   ChoiceButton(
-      {required this.onPressed, this.color = Colors.blue, required this.text});
+    {required this.onPressed, this.color = Colors.blue, required this.text}
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,6 @@ class ChoiceButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
           minimumSize: Size(500, 50),
-          // textStyle: TextStyle(color: Colors.white)
         ),
         child: Text(
           '$text',
@@ -53,20 +53,37 @@ class _QuizzPageState extends State<QuizzPage> {
     'Mật ong không bao giờ bị hỏng.',
     'Con người chỉ sử dụng 10% bộ não của mình.'
   ];
-  
+  List<int> answer = [0, 1, 1, 1, 0];
   late String text;
   int i = 0;
+  int score = 0;
   @override
-  void initState(){
+  void initState() {
     super.initState();
     text = question[i];
   }
-  void quizz() {
+
+  void quizz(int yourAnswer) {
     setState(() {
-      if(i<5){
+      if (i < question.length) {
+        if (answer[i] == yourAnswer) {
+          score += 2;
+        } 
         i++;
-        text = question[i];
+        if (i == 5) {
+          text = 'Your Score: $score';
+        } else {
+          text = question[i];
+        }
       }
+    });
+  }
+
+  void restart(){
+    setState(() {
+      i=0;
+      score=0;
+      text = question[i];
     });
   }
 
@@ -77,30 +94,38 @@ class _QuizzPageState extends State<QuizzPage> {
         children: [
           Expanded(
             child: Center(
-              child: 
-              Text('$text', style: TextStyle(fontSize: 20),)
-            )
-          ),
+              child: Text(
+                '$text',
+                style: TextStyle(fontSize: 20),
+          ))),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               ChoiceButton(
                 onPressed: () {
-                  quizz();
+                  if(i==5){
+                    restart();
+                    return;
+                  }
+                  quizz(1);
                 },
                 color: Colors.green,
-                text: "ĐÚNG",
+                text: i==5?"RESTART":"ĐÚNG",
               ),
               SizedBox(height: 20),
               ChoiceButton(
                 onPressed: () {
-                  quizz();
+                  if(i==5){
+                    restart();
+                    return;
+                  }
+                  quizz(0);
                 },
                 color: Colors.red,
-                text: "SAI",
+                text: i==5?"RESTART":"SAI",
               )
             ],
-          )
+          ),
         ],
       ),
     );
