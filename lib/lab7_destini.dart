@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,9 +9,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        title: Text('Quizzler'),
+        title: Text('Destini'),
       ),
-      body: QuizzPage(),
+      body: DestiniPage(),
     ));
   }
 }
@@ -38,55 +39,49 @@ class ChoiceButton extends StatelessWidget {
   }
 }
 
-
-
-class QuizzPage extends StatefulWidget {
-  const QuizzPage({super.key});
+class DestiniPage extends StatefulWidget {
+  const DestiniPage({super.key});
   @override
-  _QuizzPageState createState() => _QuizzPageState();
+  _DestiniPageState createState() => _DestiniPageState();
 }
 
-class _QuizzPageState extends State<QuizzPage> {
-  List<String> question = [
-    'Cá vàng có thể nhớ mọi thứ suốt đời.',
-    'Nước sôi ở 100°C ở mọi nơi trên Trái Đất.',
-    'Tất cả các hành tinh trong hệ Mặt Trời đều quay theo cùng một hướng.',
-    'Mật ong không bao giờ bị hỏng.',
-    'Con người chỉ sử dụng 10% bộ não của mình.'
+class _DestiniPageState extends State<DestiniPage> {
+  List<String> story1 = [
+    'He says that snakes are easy as they don’t have any legs.',
+    'My father is a scientist. He works to save rare birds.',
+    'Some are really clever and can even say some words.',
+    'My mother is a dog groomer. She loves dogs big and small.',
+    'Once she styled a poodle. It looked just like a ball.'
   ];
-  List<int> answer = [0, 1, 1, 1, 0];
+  List<String> story2 = [
+    'The grapes seemed ready to burst with juice',
+    'The bunch hung from a high branch, and the fox had to jump for it.',
+    'So he walked off a short distance and took a running leap',
+    'Then he sat down and looked at the grapes in disgust.',
+    'And off he walked very, very scornfully.'
+  ];
   late String text;
-  int i = 0;
-  int score = 0;
   @override
   void initState() {
     super.initState();
-    text = question[i];
+    text = "When I grow up I’ll work with animals. I don’t know which job yet.";
   }
 
-  void quizz(int yourAnswer) {
+  int i = 0;
+
+  void changeOption(List<String> story) {
     setState(() {
-      if (i < question.length && answer[i] == yourAnswer) {
-        score += 2;
+      if (i < story.length) {
+        text = story[i];
+        print(i);
+      }
+      if (i == 5) {
+        i = 0;
+        text = story[i];
+        i++;
+        return;
       }
       i++;
-      if (i == 5) {
-        text = 'Your Score: $score';
-        return;
-      }
-      if (i == 6) {
-        restart();
-        return;
-      }
-      text = question[i];
-    });
-  }
-
-  void restart() {
-    setState(() {
-      i = 0;
-      score = 0;
-      text = question[i];
     });
   }
 
@@ -106,18 +101,18 @@ class _QuizzPageState extends State<QuizzPage> {
             children: [
               ChoiceButton(
                 onPressed: () {
-                  quizz(1);
+                  changeOption(story1);
                 },
-                color: Colors.green,
-                text: i == 5 ? "RESTART" : "ĐÚNG",
+                color: const Color.fromRGBO(76, 175, 80, 1),
+                text: i < story1.length ? story1[i] : "RESTART",
               ),
               SizedBox(height: 20),
               ChoiceButton(
                 onPressed: () {
-                  quizz(0);
+                  changeOption(story2);
                 },
                 color: Colors.red,
-                text: i == 5 ? "RESTART" : "SAI",
+                text: i < story2.length ? story2[i] : "RESTART",
               )
             ],
           ),
