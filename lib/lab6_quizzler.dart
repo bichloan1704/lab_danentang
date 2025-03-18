@@ -38,8 +38,6 @@ class ChoiceButton extends StatelessWidget {
   }
 }
 
-
-
 class QuizzPage extends StatefulWidget {
   const QuizzPage({super.key});
   @override
@@ -75,7 +73,9 @@ class _QuizzPageState extends State<QuizzPage> {
         return;
       }
       if (i == 6) {
-        restart();
+        i = 0;
+        score = 0;
+        text = question[i];
         return;
       }
       text = question[i];
@@ -83,11 +83,7 @@ class _QuizzPageState extends State<QuizzPage> {
   }
 
   void restart() {
-    setState(() {
-      i = 0;
-      score = 0;
-      text = question[i];
-    });
+    setState(() {});
   }
 
   @override

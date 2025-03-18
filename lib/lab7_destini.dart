@@ -33,7 +33,7 @@ class ChoiceButton extends StatelessWidget {
           minimumSize: Size(500, 50),
         ),
         child: Text(
-          '$text',
+          text,
           style: TextStyle(color: Colors.white),
         ));
   }
