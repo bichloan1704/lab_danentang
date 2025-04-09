@@ -36,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   audioplayers: ^5.2.1
+  http: ^0.13.6  # Gọi API thời tiết
+  geolocator: ^10.1.0  # Lấy vị trí GPS
+  geolocator_web: ^2.1.7 
 
 
 dev_dependencies:
