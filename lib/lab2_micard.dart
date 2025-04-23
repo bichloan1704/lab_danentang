@@ -44,14 +44,14 @@ class MyApp extends StatelessWidget {
                     children: [
                       TextField(
                         decoration: InputDecoration(
-                        hintText: '+84 234 789 324',
+                        hintText: 'Phone number',
                         border: OutlineInputBorder(),
                       ),
                       ),
                     const SizedBox(height: 20),
                     TextField(
                       decoration: InputDecoration(
-                      hintText: 'loanntb.22itb@vku.udn.vn',
+                      hintText: 'Email',
                       border: OutlineInputBorder(),
                     ),
                     ),

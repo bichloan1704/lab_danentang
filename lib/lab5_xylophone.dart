@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
+void main() => runApp(MyApp());
+
 class CustomerButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Color color;
@@ -18,7 +20,6 @@ class CustomerButton extends StatelessWidget {
         child: Text(''));
   }
 }
-void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   final AudioPlayer _audioPlayer = AudioPlayer();

@@ -40,7 +40,7 @@ class _MagicPageState extends State<MagicPage> {
           ElevatedButton(
             onPressed: dice,
             child: Image.asset('assets/img/ball$magicBall.png',
-                width: 250, height: 250),
+                width: 300, height: 300),
           )
         ],
       ),

@@ -97,26 +97,24 @@ class _QuizzPageState extends State<QuizzPage> {
             '$text',
             style: TextStyle(fontSize: 20),
           ))),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              ChoiceButton(
-                onPressed: () {
-                  quizz(1);
-                },
-                color: Colors.green,
-                text: i == 5 ? "RESTART" : "ĐÚNG",
-              ),
-              SizedBox(height: 20),
-              ChoiceButton(
-                onPressed: () {
-                  quizz(0);
-                },
-                color: Colors.red,
-                text: i == 5 ? "RESTART" : "SAI",
-              )
-            ],
+          ChoiceButton(
+            onPressed: () {
+              quizz(1);
+            },
+            color: Colors.green,
+            text: i == 5 ? "RESTART" : "ĐÚNG",
           ),
+          SizedBox(height: 20),
+          ChoiceButton(
+            onPressed: () {
+              quizz(0);
+            },
+            color: Colors.red,
+            text: i == 5 ? "RESTART" : "SAI",
+          ),
+          SizedBox(
+            height: 50,
+          )
         ],
       ),
     );

@@ -113,7 +113,8 @@ class _DestiniPageState extends State<DestiniPage> {
                 },
                 color: Colors.red,
                 text: i < story2.length ? story2[i] : "RESTART",
-              )
+              ),
+              SizedBox(height: 50),
             ],
           ),
         ],

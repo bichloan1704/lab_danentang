@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:micard/lab8/result_bmi.dart';
 
 void main() => runApp(MyApp());
@@ -100,11 +99,11 @@ class HeightFrame extends StatelessWidget {
               style: TextStyle(fontSize: 20, color: Colors.white),
             ),
             Slider(
-              value: 150,
+              value: currentValue!,
               min: 50,
               max: 200,
               divisions: 150,
-              label: label,
+              // label: label,
               onChanged: onChanged,
             )
           ],
@@ -221,7 +220,7 @@ class BMIPageState extends State<BMIPage> {
     });
   }
 
-  double currentValue = 50;
+  double currentValue = 150;
   int weight = 50;
   int age = 20;
   void countWeight(int i) {
